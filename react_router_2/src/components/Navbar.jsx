@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
+import PokeLogo from '../assets/PokeLogo.png'
 
 export default function Navbar() {
   return (
     <nav>
-        <span>Poked Web</span>
+        <img src={PokeLogo} />
         <div>
           <NavLink className={({isActive})=>isActive ? "active" : ""} to={"/"}>Home</NavLink>
           <NavLink to={"/pokemones"}>Pokemones</NavLink>

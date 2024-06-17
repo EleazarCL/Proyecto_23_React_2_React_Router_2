@@ -22,8 +22,32 @@ export default function Detalles() {
 
     return (
         <>
-            <h1>{pokemon?.name}</h1>
-            {pokemon?.sprites?.front_default && <img src={pokemon.sprites.front_default} alt={pokemon.name} />}
+            <div className='container_central'>
+                <div className='container_pokemon'>
+                    <div className='container_imagen_pokemon'>
+                        {pokemon?.sprites?.other?.['official-artwork']?.front_default && <img src={pokemon.sprites.other['official-artwork'].front_default}
+                            alt={pokemon.name} />}
+                    </div>
+                    <div className='container_datos_pokemon'>
+                        <h1>{pokemon?.name}</h1>
+                        <ul>
+                            {pokemon?.stats?.map((stat, index) => (
+                                <li key={index}>
+                                    {stat.stat.name}: {stat.base_stat}
+                                </li>
+                            ))}
+                        </ul>
+                        <h2>Types</h2>
+                        <ul>
+                            {pokemon?.types?.map((typeInfo, index) => (
+                                <li key={index}>
+                                    {typeInfo.type.name}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </>
     );
 }

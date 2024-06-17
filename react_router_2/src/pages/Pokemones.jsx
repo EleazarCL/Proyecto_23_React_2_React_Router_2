@@ -24,7 +24,8 @@ export const Pokemones = () => {
 
     return (
         <>
-            <select value={name} onChange={(event) => setName(event.target.value)}>
+        <div className='container-select'>
+        <select value={name} onChange={(event) => setName(event.target.value)}>
                 <option value="" disabled>Selecciona un Pokemon</option>
                 {
                     pokemones.map(({ name }) =>
@@ -34,6 +35,7 @@ export const Pokemones = () => {
             <button onClick={() => navigate(`/pokemones/${name}`)} disabled={!name}>
                 Ver Pokemon
             </button>
+        </div>
         </>
     );
 };
